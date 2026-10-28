@@ -98,7 +98,7 @@
         function getRandomColor() {
             const randomColor = Math.floor(Math.random() * 16777216); // 255^3 = 16777216 all rgb combination
             const hexValue = randomColor.toString(16);
-            return `#${hexValue.toString(6, '0')}`;
+            return `#${hexValue.padStart(6, '0')}`;
         };
 
         // Copy Color Name
