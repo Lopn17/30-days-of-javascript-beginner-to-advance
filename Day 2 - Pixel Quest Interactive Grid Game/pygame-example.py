@@ -1,3 +1,12 @@
+'''
+This Pygame is just an example of how the 
+game works and looks like if you confused about the game.
+the code was made with python, this is not a cheat sheet.
+you need to figured out by yourself how to make the game
+using html css and js. you may use this as refference instead 
+of cheat sheet
+'''
+ 
 import random
 import sys
 import pygame
