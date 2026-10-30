@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 - Pixel Quest Interactive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root{
+            --card-bg: #061320;
+            --color-bg: #0b203b;
+            --color-bg2: #05101e;
+            --title-col: #aeecff;
+            --title-col2: #ecc14a;
+            --box-color: #273653;
+            --text-color: #a2b1e1;
+        }
+
+        body{
+            background-color: var(--color-bg2);
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        main{
+            background-color: var(--color-bg);
+            height: 200px;
+            width: 200px;
+            padding: 20px;
+        }
+
+        .container{
+            background-color: var(--color-bg2);
+        }
+        
+        h1{
+            font-family: "Pixelify Sans", sans-serif;
+            color: var(--title-col2);
+        }
+        h1 span{
+            color: var(--title-col);
+            
+        }
+
+    </style>
+
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1><span>Pixel</span> Quest</h1>
+            <div class="stats-container">
+                <div class="stats">
+                    <img src="" alt="">
+                    <label for="score">Score</label>
+                    <span class="score"></span>
+                </div>
+                <div class="stats">
+                    <img src="" alt="">
+                    <label for="highscore">High Score</label>
+                    <span class="high-score"></span>
+                </div>
+                <div class="stats">
+                    <img src="" alt="">
+                    <label for="score">Attempts</label>
+                    <span class="attempts"></span>
+                </div>
+                <div class="boxes-container"></div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
