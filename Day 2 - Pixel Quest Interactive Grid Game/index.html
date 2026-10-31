@@ -170,9 +170,24 @@
         .core{
             color: yellow;
         }
-        /* .done{
-            display: none;
-        } */
+
+        .set-buttons{
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .restart-button{
+            color: rgb(123, 255, 123);
+            background-color: rgba(0, 128, 0, 0.6);
+            border: 2px solid lime;
+            padding: 5px 18px;
+            user-select: none;
+        }
+        .restart-button:hover{
+            border: 2px solid rgb(104, 255, 104);
+            color: rgb(0, 249, 0);
+            background-color: rgba(0, 128, 0, 0.871);
+        }
     </style>
 
 </head>
@@ -195,18 +210,21 @@
                     <img class="img-high" src="assets/highscore.png" alt="">
                     <div class="stats-info">
                         <span class="highscore-label">High Score</span>
-                        <span class="high-score">0</span>
+                        <span class="high-score" id="highScoreStats">0</span>
                     </div>
                 </div>
                 <div class="stats">
                     <img src="assets/attempts.png" alt="">
                     <div class="stats-info">
                         <span class="attempts-label">Attempts</span>
-                        <span class="attempts">0</span>
+                        <span class="attempts" id="attemptsStats">0</span>
                     </div>
                 </div>
             </div>
             <div class="boxes-container"></div>
+            <div class="set-buttons">
+                <div class="restart-button" id="restartBtn">Restart</div>
+            </div>
         </div>
     </main>
     <script src="script.js"></script>
