@@ -9,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     
     <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root{
             --card-bg: #061320;
             --color-bg: #0b203b;
@@ -29,22 +36,63 @@
         
         main{
             background-color: var(--color-bg);
-            height: 200px;
-            width: 200px;
-            padding: 20px;
+            height: auto;
+            width: auto;
+            border-radius: 10px;
+            padding: 14px;
         }
 
         .container{
             background-color: var(--color-bg2);
+            padding: 1px 10px 10px 10px;
+            border-radius: 10px;
         }
         
         h1{
             font-family: "Pixelify Sans", sans-serif;
             color: var(--title-col2);
+            text-align: center;
+            margin: 10px 0 10px 0;
         }
+
         h1 span{
             color: var(--title-col);
             
+        }
+
+        .stats-container{
+            border: 2px solid white;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .stats{
+            color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stats span{
+            display: block;
+        }
+        .stats img{
+            border: 1px solid white;
+            height: 30px;
+        }
+
+        .boxes-container{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            background: var(--box-color);
         }
 
     </style>
@@ -56,21 +104,48 @@
             <h1><span>Pixel</span> Quest</h1>
             <div class="stats-container">
                 <div class="stats">
-                    <img src="" alt="">
-                    <label for="score">Score</label>
-                    <span class="score"></span>
+                    <img src="guide.png" alt="">
+                    <div class="stats-info">
+                        <span class="score-label">Score</span>
+                        <span class="score">0</span>
+                    </div>
                 </div>
                 <div class="stats">
-                    <img src="" alt="">
-                    <label for="highscore">High Score</label>
-                    <span class="high-score"></span>
+                    <img src="guide.png" alt="">
+                    <div class="stats-info">
+                        <span class="highscore-label">High Score</span>
+                        <span class="high-score">0</span>
+                    </div>
                 </div>
                 <div class="stats">
-                    <img src="" alt="">
-                    <label for="score">Attempts</label>
-                    <span class="attempts"></span>
+                    <img src="guide.png" alt="">
+                    <div class="stats-info">
+                        <span class="attempts-label">Attempts</span>
+                        <span class="attempts">0</span>
+                    </div>
                 </div>
-                <div class="boxes-container"></div>
+            </div>
+            <div class="boxes-container">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
             </div>
         </div>
     </main>
