@@ -24,6 +24,9 @@ function renderBox() {
     scoreStats.textContent = score;
     attemptsStats.textContent = attempts;
     boxesContainer.innerHTML = '';
+    
+    score = 200;
+    
     for (let i = 0; i < boxesTotal; i++) {
         targetLocation.textContent = targetCore;
         const box = document.createElement("div");
@@ -40,8 +43,6 @@ function renderBox() {
         box.appendChild(numId);
         
         let deveMode = false;
-
-        score = 200;
         
         box.addEventListener('click',() => {
 
