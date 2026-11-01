@@ -28,6 +28,8 @@ function renderBox() {
     score = 200;
     
     for (let i = 0; i < boxesTotal; i++) {
+        let deveMode = false;
+        
         targetLocation.textContent = targetCore;
         const box = document.createElement("div");
         box.classList.add("box");
@@ -42,7 +44,6 @@ function renderBox() {
         numId.textContent = boxId;
         box.appendChild(numId);
         
-        let deveMode = false;
         
         box.addEventListener('click',() => {
 
@@ -105,6 +106,7 @@ restartBtn.addEventListener('click', () => {
     score = 0;
     attempts = 10;
     targetCore = Math.floor(Math.random() * boxesTotal);
+    targetCoreAns.classList.add("hidden");
     renderBox()
 
 })
