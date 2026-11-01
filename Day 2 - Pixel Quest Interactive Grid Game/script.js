@@ -5,10 +5,11 @@ const devMode = document.querySelector("#devMode");
 const scoreStats = document.querySelector("#scoreStats");
 const highScoreStats = document.querySelector("#highScoreStats");
 const restartBtn = document.querySelector("#restartBtn");
+const attemptsStats = document.querySelector("#attemptsStats");
 
-let boxesTotal = 20;
+let boxesTotal = 25;
 
-let targetCore = Math.floor(Math.random() * 20);
+let targetCore = Math.floor(Math.random() * boxesTotal);
 
 
 let isGameOver = false;
@@ -17,8 +18,11 @@ let score = 0;
 
 let highScore = 0;
 
+let attempts = 10;
+
 function renderBox() {
     scoreStats.textContent = score;
+    attemptsStats.textContent = attempts;
     boxesContainer.innerHTML = '';
     for (let i = 0; i < boxesTotal; i++) {
         targetLocation.textContent = targetCore;
@@ -66,7 +70,15 @@ function renderBox() {
                 box.classList.add("selected");
                 box.appendChild(numId);
                 score = score - 10;
+                attempts = attempts - 1;
                 scoreStats.textContent = score;
+                attemptsStats.textContent = attempts;
+                
+                if (attempts == 0) {
+                    alert('you lose, attempts run out');
+                    isGameOver = true;
+                }
+
             }
         });
 
@@ -90,7 +102,8 @@ renderBox();
 restartBtn.addEventListener('click', () => {
     isGameOver = false;
     score = 0;
-    targetCore = Math.floor(Math.random() * 20);
+    attempts = 10;
+    targetCore = Math.floor(Math.random() * boxesTotal);
     renderBox()
 
 })
