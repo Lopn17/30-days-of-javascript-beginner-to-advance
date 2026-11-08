@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+    --h1-col: #91dafb;
+    --stats-panel-col: #1b1e32;
+    --stat-title-col: #82889e;
+    --bg-blue: #4259c1;
+    --bg-red: #ba6044;
+}
+
+body{
+    color: white;
+    background-color: #0e101b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h1{
+    color: var(--h1-col);
+    margin: 10px;
+}
+
+.stats-panel{
+    display: flex;
+    gap: 70px;
+    margin: 10px;
+    background-color: var(--stats-panel-col);
+    padding: 10px 50px;
+    border-radius: 9px;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-title{
+    color: var(--stat-title-col);
+    font-size: small;
+    font-weight: bold;
+}
+
+.stat-value{
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.block-container{
+    margin: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.block-num{
+    background-color: var(--bg-blue);
+    color: white;
+    border: none;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.feedback-container{
+    margin: 10px;
+    font-size: larger;
+}
+
+.action-buttons{
+    display: flex;
+    margin: 10px;
+    gap: 15px;
+}
+
+.action-buttons button{
+    color: white;
+    background-color: blue;
+    font-weight: bold;
+    padding: 9px 19px;
+    border: 0;
+    border-radius: 6px;
+}
+
+#checkButton{
+    background-color: var(--bg-blue);
+}
+
+#newRoundButton{
+    background-color: var(--bg-red);
+}
+
+.hint-guide{
+    color: gray;
+}
+

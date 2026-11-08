@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapSort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>SnapSort</h1>
+    <div class="stats-panel">
+        <div class="stats">
+            <span class="stat-title">TIME</span>
+            <span class="stat-value" id="timeLabel">0.0s</span>
+        </div>
+        <div class="stats">
+            <span class="stat-title">SCORE</span>
+            <span class="stat-value" id="scoreLabel">0</span>
+        </div>
+        <div class="stats">
+            <span class="stat-title">COMBO</span>
+            <span class="stat-value" id="comboLabel">x0</span>
+        </div>
+        <div class="stats">
+            <span class="stat-title">BEST</span>
+            <span class="stat-value" id="bestLabel">-</span>
+        </div>
+    </div>
+    <div class="block-container">
+    </div>
+    <div class="feedback-container">Sort from smallest to largest.</div>
+    <div class="action-buttons">
+        <button id="checkButton">CHECK</button>
+        <button id="newRoundButton" onclick="location.reload()">NEW ROUND</button>
+    </div>
+    <p class="hint-guide">Click / SPACE: select then swap | Arrows: cursor movement</p>
+    
+    <script src="script.js"></script>
+</body>
+</html>
