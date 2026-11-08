@@ -10,6 +10,8 @@ let numRangeMax = 15;
 
 let numArray = [];
 
+let selectedBlock = null;
+
 for (let i = 0; i < totalBlocks; i++) {
 
     const block = document.createElement('button');
@@ -19,6 +21,23 @@ for (let i = 0; i < totalBlocks; i++) {
     blocksContainer.append(block);
     block.textContent = numArray[i];
     
+    block.addEventListener("click", () => {
+
+        if (selectedBlock === block) {
+            selectedBlock.classList.remove('selected');
+            selectedBlock = null;
+            return;
+        }
+
+        if (selectedBlock !== null) {
+            selectedBlock.classList.remove('selected');
+        }
+
+        block.classList.add("selected");
+        selectedBlock = block;
+        console.log(selectedBlock);
+
+    });
     
 }
 console.log(numArray);

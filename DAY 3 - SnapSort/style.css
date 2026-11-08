@@ -105,3 +105,8 @@ h1{
     color: gray;
 }
 
+.block-num.selected{
+    background-color: #008cff80;
+    transform: scale(1.05);
+    outline: 2px solid white;
+}
