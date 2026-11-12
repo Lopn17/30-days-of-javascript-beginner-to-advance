@@ -4,6 +4,10 @@ function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min+1)) + min;
 }
 
+function sortedArray(arr) {
+    return arr.toSorted((a,b) => a - b);
+}
+
 let totalBlocks = 7;
 let numRangeMin = 1;
 let numRangeMax = 15;
@@ -14,6 +18,8 @@ let selectedIndex = null;
 for (let i = 0; i < totalBlocks; i++) {
     numArray.push(getRandomNum(numRangeMin, numRangeMax));
 }
+
+let sortedNumArray = sortedArray(numArray);
 
 function renderBoard() {
     blocksContainer.innerHTML = '';
@@ -41,7 +47,7 @@ function renderBoard() {
                 selectedIndex = i;
                 renderBoard(); // Render ulang untuk menampilkan efek 'selected'
             }
-
+            
             else {
                 [numArray[selectedIndex],numArray[i]] = [numArray[i],numArray[selectedIndex]];
                 selectedIndex = null;
