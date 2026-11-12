@@ -7,47 +7,53 @@ function getRandomNum(min, max) {
 let totalBlocks = 7;
 let numRangeMin = 1;
 let numRangeMax = 15;
-
 let numArray = [];
-
-let selectedBlock = null;
 let selectedIndex = null;
 
+// 1. Inisialisasi data awal (hanya mengisi array, belum membuat elemen HTML)
 for (let i = 0; i < totalBlocks; i++) {
+    numArray.push(getRandomNum(numRangeMin, numRangeMax));
+}
 
-    const block = document.createElement('button');
-    block.classList.add('block-num');
-    let blockNum = getRandomNum(numRangeMin,numRangeMax);
-    numArray.push(blockNum);
-    blocksContainer.append(block);
-    block.textContent = numArray[i];
-    
-    block.addEventListener("click", () => {
+function renderBoard() {
+    blocksContainer.innerHTML = '';
 
-        if (selectedBlock === block) {
-            selectedBlock.classList.remove('selected');
-            selectedBlock = null;
-            selectedIndex = null;
-            return;
-        }
+    numArray.forEach((num, i) => {
+        const block = document.createElement('button');
+        block.classList.add('block-num');
+        block.textContent = num;
 
-        if (selectedBlock === null) {
+        // Jika indeks ini sedang dipilih, tambahkan class 'selected'
+        if (selectedIndex === i) {
             block.classList.add('selected');
-            selectedBlock = block;
-            selectedIndex = i;
-        } else {
-            [numArray[selectedIndex], numArray[i]] = [numArray[i], numArray[selectedIndex]];
-            selectedBlock.textContent = numArray[selectedIndex];
-            block.textContent = numArray[i];
-
-            selectedBlock.classList.remove('selected');
-            selectedBlock = null;
-            selectedIndex = null;
-
-            console.log("Swapped array:", numArray);
         }
 
+        block.addEventListener('click', () =>{
+            // Kasus 1: Mengklik blok yang sama (batalkan pilihan)
+            if (selectedIndex === i) {
+                selectedIndex = null;
+                renderBoard(); // Render ulang untuk menghilangkan efek 'selected'
+                return;
+            }
+
+            // Kasus 2: Belum ada blok yang dipilih (pilih blok ini)
+            if (selectedIndex === null) {
+                selectedIndex = i;
+                renderBoard(); // Render ulang untuk menampilkan efek 'selected'
+            }
+
+            else {
+                [numArray[selectedIndex],numArray[i]] = [numArray[i],numArray[selectedIndex]];
+                selectedIndex = null;
+                renderBoard();
+            }
+
+
+        });
+
+        blocksContainer.append(block);
     });
     
 }
-console.log(numArray);
+
+renderBoard();
