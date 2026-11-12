@@ -1,0 +1,61 @@
+const blocksContainer = document.querySelector('.block-container');
+
+function getRandomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let totalBlocks = 7;
+let numRangeMin = 1;
+let numRangeMax = 15;
+let numArray = [];
+let selectedIndex = null; // Kita cukup melacak indeksnya saja
+
+// 1. Inisialisasi data awal (hanya mengisi array, belum membuat elemen HTML)
+for (let i = 0; i < totalBlocks; i++) {
+  numArray.push(getRandomNum(numRangeMin, numRangeMax));
+}
+
+// 2. Fungsi utama untuk merender ulang seluruh board berdasarkan numArray
+function renderBoard() {
+  // Hapus seluruh isi kontainer sebelum menggambar ulang
+  blocksContainer.innerHTML = '';
+
+  numArray.forEach((num, i) => {
+    const block = document.createElement('button');
+    block.classList.add('block-num');
+    block.textContent = num;
+
+    // Jika indeks ini sedang dipilih, tambahkan class 'selected'
+    if (selectedIndex === i) {
+      block.classList.add('selected');
+    }
+
+    block.addEventListener('click', () => {
+      // Kasus 1: Mengklik blok yang sama (batalkan pilihan)
+      if (selectedIndex === i) {
+        selectedIndex = null;
+        renderBoard(); // Render ulang untuk menghilangkan efek 'selected'
+        return;
+      }
+
+      // Kasus 2: Belum ada blok yang dipilih (pilih blok ini)
+      if (selectedIndex === null) {
+        selectedIndex = i;
+        renderBoard(); // Render ulang untuk menampilkan efek 'selected'
+      } 
+      // Kasus 3: Sudah ada blok yang dipilih (tukar posisi & render ulang)
+      else {
+        [numArray[selectedIndex], numArray[i]] = [numArray[i], numArray[selectedIndex]];
+        selectedIndex = null;
+        console.log("Swapped array:", numArray);
+        renderBoard(); // Render ulang seluruh board dengan urutan array baru
+      }
+    });
+
+    blocksContainer.append(block);
+  });
+}
+
+// 3. Panggil renderBoard() pertama kali saat halaman dimuat
+renderBoard();
+console.log("Initial array:", numArray);

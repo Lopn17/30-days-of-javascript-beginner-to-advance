@@ -11,6 +11,7 @@ let numRangeMax = 15;
 let numArray = [];
 
 let selectedBlock = null;
+let selectedIndex = null;
 
 for (let i = 0; i < totalBlocks; i++) {
 
@@ -26,16 +27,25 @@ for (let i = 0; i < totalBlocks; i++) {
         if (selectedBlock === block) {
             selectedBlock.classList.remove('selected');
             selectedBlock = null;
+            selectedIndex = null;
             return;
         }
 
-        if (selectedBlock !== null) {
-            selectedBlock.classList.remove('selected');
-        }
+        if (selectedBlock === null) {
+            block.classList.add('selected');
+            selectedBlock = block;
+            selectedIndex = i;
+        } else {
+            [numArray[selectedIndex], numArray[i]] = [numArray[i], numArray[selectedIndex]];
+            selectedBlock.textContent = numArray[selectedIndex];
+            block.textContent = numArray[i];
 
-        block.classList.add("selected");
-        selectedBlock = block;
-        console.log(selectedBlock);
+            selectedBlock.classList.remove('selected');
+            selectedBlock = null;
+            selectedIndex = null;
+
+            console.log("Swapped array:", numArray);
+        }
 
     });
     
