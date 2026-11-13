@@ -111,3 +111,13 @@ h1{
     transform: scale(1.05);
     outline: 2px solid white;
 }
+
+.correct{
+    font-weight: bold;
+    color: rgb(80, 220, 130);
+}
+
+.incorrect{
+    font-weight: bold;
+    color: rgb(240, 90, 90);
+}

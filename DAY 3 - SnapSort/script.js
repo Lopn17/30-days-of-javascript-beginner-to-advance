@@ -1,4 +1,6 @@
 const blocksContainer = document.querySelector('.block-container');
+const checkButton = document.getElementById('checkButton');
+const feedback = document.querySelector('.feedback-container');
 
 function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min+1)) + min;
@@ -53,13 +55,33 @@ function renderBoard() {
                 selectedIndex = null;
                 renderBoard();
             }
-
-
         });
 
         blocksContainer.append(block);
     });
     
 }
+
+function arrayMatch(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+
+    return arr1.every((value, index) => value === arr2[index]);
+}
+
+
+
+checkButton.addEventListener('click', ()=>{
+    let filteredArr = sortedNumArray.filter((num, index) => num === numArray[index]); 
+
+    feedback.className = 'feedback-container';
+    if (arrayMatch(numArray, sortedNumArray)) {
+        feedback.classList.add('correct');
+        feedback.textContent = `BENAR!`;
+    } else {
+        feedback.classList.add('incorrect');
+        feedback.textContent = `Belum benar: ${filteredArr.length}/${sortedNumArray.length} posisi tepat`;
+    }
+});
+
 
 renderBoard();
