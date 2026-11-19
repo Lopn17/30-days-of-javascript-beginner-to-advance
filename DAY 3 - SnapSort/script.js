@@ -76,10 +76,10 @@ checkButton.addEventListener('click', ()=>{
     feedback.className = 'feedback-container';
     if (arrayMatch(numArray, sortedNumArray)) {
         feedback.classList.add('correct');
-        feedback.textContent = `BENAR!`;
+        feedback.textContent = `Correct!`;
     } else {
         feedback.classList.add('incorrect');
-        feedback.textContent = `Belum benar: ${filteredArr.length}/${sortedNumArray.length} posisi tepat`;
+        feedback.textContent = `Incorrect: ${filteredArr.length}/${sortedNumArray.length} correct position`;
     }
 });
 
