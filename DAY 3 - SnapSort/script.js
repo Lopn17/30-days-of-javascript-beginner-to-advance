@@ -16,6 +16,8 @@ let numRangeMax = 15;
 let numArray = [];
 let selectedIndex = null;
 
+let isGameOver = false;
+
 // 1. Inisialisasi data awal (hanya mengisi array, belum membuat elemen HTML)
 for (let i = 0; i < totalBlocks; i++) {
     numArray.push(getRandomNum(numRangeMin, numRangeMax));
@@ -37,6 +39,11 @@ function renderBoard() {
         }
 
         block.addEventListener('click', () =>{
+
+             if (isGameOver) {
+                return;
+            }
+
             // Kasus 1: Mengklik blok yang sama (batalkan pilihan)
             if (selectedIndex === i) {
                 selectedIndex = null;
@@ -68,15 +75,19 @@ function arrayMatch(arr1, arr2) {
     return arr1.every((value, index) => value === arr2[index]);
 }
 
-
-
 checkButton.addEventListener('click', ()=>{
+
+     if (isGameOver) {
+        return;
+    }
+
     let filteredArr = sortedNumArray.filter((num, index) => num === numArray[index]); 
 
     feedback.className = 'feedback-container';
     if (arrayMatch(numArray, sortedNumArray)) {
         feedback.classList.add('correct');
         feedback.textContent = `Correct!`;
+        isGameOver = true;
     } else {
         feedback.classList.add('incorrect');
         feedback.textContent = `Incorrect: ${filteredArr.length}/${sortedNumArray.length} correct position`;
